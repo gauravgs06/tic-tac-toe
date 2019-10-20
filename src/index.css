@@ -1,52 +1,94 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-  }
-  
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  .square:focus {
-    outline: none;
-  }
-  .square-win{
-    background: yellow;
-  }
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
+  font: 14px "Century Gothic", Futura, sans-serif;
+  color: #fff;
+}
+.game {
+  background-color: #a2919e;
+  display: grid;
+  padding: 20px;
+  grid-template:
+    "header header"
+    "board info";
+}
+.header {
+  grid-area: header;
+  margin: 10px auto;
+  font-size: 6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.game-board {
+  grid-area: board;
+  width: 500px;
+  height: 500px;
+  margin: 10px auto;
+  background-color: #34495e;
+  color: #fff;
+  border: 6px solid #2c3e50;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template: repeat(3, 0.8fr) / repeat(3, 1fr);
+}
+
+.square {
+  border: 6px solid #2c3e50;
+  border-radius: 2px;
+  background: none;
+  color: #fff;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.square:focus {
+  outline: none;
+}
+.square-win {
+  background: #555555;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.game-info {
+  grid-area: info;
+}
+.status {
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-display: inherit;
+  font-weight: bold;
+}
+.move-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.move-list li {
+  counter-increment: step-counter;
+  margin-bottom: 10px;
+}
+.move-list li::before{
+  content: counter(step-counter);
+  margin-right: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+li > button{
+  background:none;
+  border: none;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:1.5rem;
+  color:#fff
+}
+li > button:focus{
+  outline:none
+}

@@ -90,16 +90,17 @@ class Game extends Component {
 
     return (
       <div className="game">
-        <div className="game-board">
-          <Board
-            squares={squares}
-            onClick={(row, col) => this.handleClick(row, col)}
-            line={line}
-          />
+        <div className="header">
+          Tic Tac Toe
         </div>
+        <Board
+          squares={squares}
+          onClick={(row, col) => this.handleClick(row, col)}
+          line={line}
+        />
         <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+          <div className="status">{status}</div>
+          <ol className="move-list">{moves}</ol>
         </div>
       </div>
     );

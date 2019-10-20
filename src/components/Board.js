@@ -29,15 +29,11 @@ class Board extends Component {
     const rows = [0, 1, 2];
     const cols = [0, 1, 2];
     const squares = rows.map(row => {
-      return (
-        <div className="board-row">
-          {cols.map(col => {
-            return this.renderSquare(row, col);
-          })}
-        </div>
-      );
+      return cols.map(col => {
+        return this.renderSquare(row, col);
+      });
     });
-    return <div>{squares}</div>;
+    return <div className="game-board">{squares}</div>;
   }
 }
 
