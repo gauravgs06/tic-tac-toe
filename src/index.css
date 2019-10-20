@@ -1,39 +1,66 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   color: #fff;
+  background-color: #a2919e;
 }
 .game {
-  background-color: #a2919e;
+  width: auto;
+  height: auto;
   display: grid;
-  padding: 20px;
-  grid-template:
-    "header header"
-    "board info";
+  padding: 1.2rem;
+}
+@media only screen and (max-width: 768px) {
+  html{
+    font-size:10px;
+  }
+  .game {
+    grid-template:
+      "header"
+      "board"
+      "info";
+  }
+  .game-info {
+    grid-area: info;
+    margin: 5px auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  html{
+    font-size: 16px;
+  }
+  .game {
+    grid-template:
+      "header header"
+      "board info";
+  }
+  .game-info {
+    grid-area: info;
+  }
 }
 .header {
   grid-area: header;
-  margin: 10px auto;
+  margin: 1rem auto;
   font-size: 6rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
 .game-board {
   grid-area: board;
-  width: 500px;
-  height: 500px;
-  margin: 10px auto;
+  width: 30rem;
+  height: 30rem;
+  margin: 1rem auto;
   background-color: #34495e;
   color: #fff;
-  border: 6px solid #2c3e50;
-  border-radius: 10px;
+  border: 0.4rem solid #2c3e50;
+  border-radius: 0.6rem;
 
   display: grid;
   grid-template: repeat(3, 0.8fr) / repeat(3, 1fr);
 }
 
 .square {
-  border: 6px solid #2c3e50;
-  border-radius: 2px;
+  border: 0.1em solid #2c3e50;
+  border-radius: 0.05em;
   background: none;
   color: #fff;
   font-family: Helvetica;
@@ -54,9 +81,6 @@ body {
   margin-bottom: 10px;
 }
 
-.game-info {
-  grid-area: info;
-}
 .status {
   font-size: 1.6rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -73,7 +97,7 @@ body {
   counter-increment: step-counter;
   margin-bottom: 10px;
 }
-.move-list li::before{
+.move-list li::before {
   content: counter(step-counter);
   margin-right: 5px;
   font-size: 1.5rem;
@@ -82,13 +106,13 @@ body {
   border-radius: 3px;
 }
 
-li > button{
-  background:none;
+li > button {
+  background: none;
   border: none;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:1.5rem;
-  color:#fff
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
 }
-li > button:focus{
-  outline:none
+li > button:focus {
+  outline: none;
 }
